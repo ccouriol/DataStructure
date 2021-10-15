@@ -20,12 +20,14 @@
 #include <CUnit/Basic.h>
 
 #include "../include/stack.h"
+#include "../include/array_list.h"
 #include "../include/queue.h"
 #include "../include/heap.h"
 
 void assert_test_queue();
 void cunit_test_queue();
 void assert_test_stack();
+void assert_test_arraylist();
 
 /*!
 * \fn int main(int argc, char **argv)
@@ -41,6 +43,8 @@ void assert_test_stack();
 int main(int argc, char **argv)
 {
     assert_test_queue();
+    assert_test_stack();
+    assert_test_arraylist();
 
     CU_pSuite pSuite = NULL;
 
@@ -188,4 +192,41 @@ void assert_test_stack()
         assert(t0.data[i] == 0);
     }
     assert(t0.index == 0);
+}
+
+/*!
+* \fn void assert_test_arraylist()
+* \author GABETTE Cédric
+* \version 0.1
+* \date  15/10/2021
+* \brief Unitary test with assert
+* \remarks None
+*/
+void assert_test_arraylist()
+{
+    float a0 = 1.123;
+    float b0 = 20.02;
+    float c0 = 12.12;
+
+    Array_list l0;
+
+    //Initialize the list : verify if the first index is 0
+    init_array_list(&l0);
+    assert(l0.index == 0);
+    //Put a value in a chosen position : verify if we find the value
+    insert_at(&l0, 3, 1.123);
+    assert(l0.data[3] == a0);
+    //Remplace the last value equal to 0 with a new value : verify if we find the value
+    add(&l0, 20.02);
+    assert(l0.data[l0.index - 1] == b0);
+    //Delete a value from a chosen position : verify if the value equals to 0
+    float returning = remove_at(&l0, 3);
+    assert(returning == a0);
+    //Add et return the value of a chosen position : verify if the value match
+    add(&l0, 12.12);
+    get_at(&l0, 1);
+    assert(l0.data[1] == c0);
+    //Set all the values to 0 et set index to 0 : verify is index equals to 0
+    clear_list(&l0);
+    assert(l0.index == 0);
 }
