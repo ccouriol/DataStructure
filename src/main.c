@@ -25,9 +25,11 @@
 #include "../include/heap.h"
 
 void assert_test_queue();
-void cunit_test_queue();
 void assert_test_stack();
 void assert_test_arraylist();
+void cunit_test_queue();
+void cunit_test_stack();
+
 
 /*!
 * \fn int main(int argc, char **argv)
@@ -56,6 +58,7 @@ int main(int argc, char **argv)
 
     /* add the tests to the suite */
     CU_add_test(pSuite, "test of cunit_test_queue()", cunit_test_queue);
+    CU_add_test(pSuite, "test of cunit_test_stack()", cunit_test_stack);
 
     /* Run all tests using the CUnit Basic interface */
     CU_basic_set_mode(CU_BRM_VERBOSE);
@@ -170,9 +173,8 @@ void assert_test_stack()
     push_stack(&t0, 5.2);
     assert(t0.data[t0.index - 1] == b);
     //Pop last value : verify if the value on the top of the stack is deleted
-    pop_stack(&t0);
-    assert(t0.data[t0.index] == 0);
-    assert(t0.data[t0.index - 1] == a);
+    float toreturn = pop_stack(&t0);
+    assert(toreturn == b);
     //Pop et ask if the stack is empty : verify if the only index left is 0
     pop_stack(&t0);
     is_stack_empty(&t0);
@@ -192,6 +194,54 @@ void assert_test_stack()
         assert(t0.data[i] == 0);
     }
     assert(t0.index == 0);
+}
+
+/*!
+* \fn void cunit_test_stack()
+* \author GABETTE Cédric
+* \version 0.1
+* \date  15/10/2021
+* \brief Unitary test with CUnit
+* \remarks None
+*/
+void cunit_test_stack()
+{
+
+    float a = 1.4, b = 5.2, c = 3.3;
+
+    Stack t0;
+
+    //Initialize the stack : verify if the first index is 0
+    init_stack(&t0);
+    CU_ASSERT_TRUE_FATAL(t0.index == 0);
+    //Push 1.4 : verify if index 0 equal to a = 1.4 in float type.
+    push_stack(&t0, 1.4);
+    CU_ASSERT_TRUE_FATAL(t0.data[t0.index - 1] == a);
+    //Push 5.2 : verify is index 1 equal to b = 5.2 in float type.
+    push_stack(&t0, 5.2);
+    CU_ASSERT_TRUE_FATAL(t0.data[t0.index - 1] == b);
+    //Pop last value : verify if the value on the top of the stack is deleted
+    pop_stack(&t0);
+    CU_ASSERT_EQUAL_FATAL(pop_stack(&t0), a);
+    //Pop et ask if the stack is empty : verify if the only index left is 0
+    pop_stack(&t0);
+    is_stack_empty(&t0);
+    CU_ASSERT_TRUE_FATAL(t0.index == 0);
+    //Push and duplicate : verify if the last value get duplicate and pushed as the new last value
+    push_stack(&t0, 3.3);
+    dup(&t0);
+    CU_ASSERT_TRUE_FATAL(t0.data[t0.index - 2] == c && t0.data[t0.index - 1] == c);
+    //Push and swap : verify if the last value goes before last et the before last goes last.
+    push_stack(&t0, 1.4);
+    swap(&t0);
+    CU_ASSERT_TRUE_FATAL(t0.data[t0.index - 1] == c && t0.data[t0.index - 2] == a);
+    //Clear the stack : verify if the only index left is 0 and if all the values are set to 0
+    clear_stack(&t0);
+    for (int i = 0; i < STACK_MAX_SIZE; i++)
+    {
+        CU_ASSERT_TRUE_FATAL(t0.data[i] == 0);
+    }
+    CU_ASSERT_TRUE_FATAL(t0.index == 0);
 }
 
 /*!
