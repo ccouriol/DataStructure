@@ -29,6 +29,7 @@ void assert_test_stack();
 void assert_test_arraylist();
 void cunit_test_queue();
 void cunit_test_stack();
+void cunit_test_arraylist();
 
 
 /*!
@@ -59,6 +60,7 @@ int main(int argc, char **argv)
     /* add the tests to the suite */
     CU_add_test(pSuite, "test of cunit_test_queue()", cunit_test_queue);
     CU_add_test(pSuite, "test of cunit_test_stack()", cunit_test_stack);
+    CU_add_test(pSuite, "test of cunit_test_arraylist()", cunit_test_arraylist);
 
     /* Run all tests using the CUnit Basic interface */
     CU_basic_set_mode(CU_BRM_VERBOSE);
@@ -279,4 +281,41 @@ void assert_test_arraylist()
     //Set all the values to 0 et set index to 0 : verify is index equals to 0
     clear_list(&l0);
     assert(l0.index == 0);
+}
+
+
+/*!
+* \fn void cunit_test_arraylist() 
+* \author GABETTE Cédric
+* \version 0.1
+* \date  15/10/2021
+* \brief Unitary test with CUnit
+* \remarks None
+*/
+void cunit_test_arraylist()
+{
+
+    float a0 = 1.123;
+    float b0 = 20.02;
+    float c0 = 12.12;
+
+    Array_list l0;
+
+    //Initialize the list : verify if the first index is 0
+    init_array_list(&l0);
+    CU_ASSERT_TRUE_FATAL(l0.index == 0);
+    //Put a value in a chosen position : verify if we find the value
+    insert_at(&l0, 3, 1.123);
+    CU_ASSERT_TRUE_FATAL(l0.data[3] == a0);
+    //Remplace the last value equal to 0 with a new value : verify if we find the value
+    add(&l0, 20.02);
+    CU_ASSERT_TRUE_FATAL(l0.data[l0.index - 1] == b0);
+    //Delete a value from a chosen position : verify the value of the removed value
+    CU_ASSERT_EQUAL_FATAL(remove_at(&l0, 3), a0);
+    //Add et return the value of a chosen position : verify if the value match
+    add(&l0, 12.12);
+    CU_ASSERT_EQUAL_FATAL(get_at(&l0, 1), c0);
+    //Set all the values to 0 et set index to 0 : verify is index equals to 0
+    clear_list(&l0);
+    CU_ASSERT_TRUE_FATAL(l0.index == 0);
 }
