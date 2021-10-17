@@ -27,6 +27,7 @@
 void assert_test_queue();
 void assert_test_stack();
 void assert_test_arraylist();
+void assert_test_heap();
 void cunit_test_queue();
 void cunit_test_stack();
 void cunit_test_arraylist();
@@ -48,6 +49,7 @@ int main(int argc, char **argv)
     assert_test_queue();
     assert_test_stack();
     assert_test_arraylist();
+    assert_test_heap();
 
     CU_pSuite pSuite = NULL;
 
@@ -318,6 +320,28 @@ void cunit_test_arraylist()
     //Set all the values to 0 et set index to 0 : verify is index equals to 0
     clear_list(&l0);
     CU_ASSERT_TRUE_FATAL(l0.index == 0);
+}
+
+void assert_test_heap()
+{
+    Heap h;
+    Heap m;
+    init_heap(&h);
+    assert(h.index == 0);
+    assert(is_heap_empty(&h) == 1);
+    push_heap(&h, 5.4f);
+    assert(h.index == 1);
+    assert(h.data[0] == 5.4f);
+    push_heap(&h, 3.4f);
+    push_heap(&h, 2.4f);
+    push_heap(&h, 4.4f);
+    assert(is_heap_empty(&h) == 0);
+    assert(h.index == 4);
+    assert(pop_heap(&h) == 2.4f);
+    assert(h.index == 3);
+    assert(replace(&h, 1.4f) == 3.4f);
+    assert(peek_heap(&h) == 1.4f);
+    merge(&m, &h);
 }
 
 /*!
