@@ -1,9 +1,9 @@
 # DataStructure
 
 ## Todo
-- [ ] verify function behavior
-- [ ] Unit test (CUnit)
-- [ ] use assertions
+- [x] verify function behavior
+- [x] Unit test (CUnit)
+- [x] use assertions
 - [x] doxygen
 - [x] git
 - [x] invite professor
