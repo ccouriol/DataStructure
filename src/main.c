@@ -324,10 +324,10 @@ void cunit_test_arraylist()
 
 /*!
 * \fn void assert_test_heap()
-* \author Name <email@email.com>
+* \author Clément Couriol
 * \version 0.1
 * \date  17/10/2021
-* \brief 
+* \brief Unitary test with assert
 * \remarks None
 */
 void assert_test_heap()
