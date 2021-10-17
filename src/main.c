@@ -30,7 +30,7 @@ void assert_test_arraylist();
 void cunit_test_queue();
 void cunit_test_stack();
 void cunit_test_arraylist();
-
+void cunit_test_heap();
 
 /*!
 * \fn int main(int argc, char **argv)
@@ -61,6 +61,7 @@ int main(int argc, char **argv)
     CU_add_test(pSuite, "test of cunit_test_queue()", cunit_test_queue);
     CU_add_test(pSuite, "test of cunit_test_stack()", cunit_test_stack);
     CU_add_test(pSuite, "test of cunit_test_arraylist()", cunit_test_arraylist);
+    CU_add_test(pSuite, "test of cunit_test_heap()", cunit_test_heap);
 
     /* Run all tests using the CUnit Basic interface */
     CU_basic_set_mode(CU_BRM_VERBOSE);
@@ -283,9 +284,8 @@ void assert_test_arraylist()
     assert(l0.index == 0);
 }
 
-
 /*!
-* \fn void cunit_test_arraylist() 
+* \fn void cunit_test_arraylist()
 * \author GABETTE Cédric
 * \version 0.1
 * \date  15/10/2021
@@ -318,4 +318,34 @@ void cunit_test_arraylist()
     //Set all the values to 0 et set index to 0 : verify is index equals to 0
     clear_list(&l0);
     CU_ASSERT_TRUE_FATAL(l0.index == 0);
+}
+
+/*!
+* \fn void cunit_test_heap()
+* \author Clément Couriol
+* \version 0.1
+* \date  17/10/2021
+* \brief Unitary test with CUnit
+* \remarks None
+*/
+void cunit_test_heap()
+{
+    Heap h;
+    Heap m;
+    init_heap(&h);
+    CU_ASSERT_TRUE_FATAL(h.index == 0);
+    CU_ASSERT_EQUAL_FATAL(is_heap_empty(&h), 1);
+    push_heap(&h, 5.4f);
+    CU_ASSERT_TRUE_FATAL(h.index == 1);
+    CU_ASSERT_TRUE_FATAL(h.data[0] == 5.4f);
+    push_heap(&h, 3.4f);
+    push_heap(&h, 2.4f);
+    push_heap(&h, 4.4f);
+    CU_ASSERT_EQUAL_FATAL(is_heap_empty(&h), 0);
+    CU_ASSERT_TRUE_FATAL(h.index == 4);
+    CU_ASSERT_EQUAL_FATAL(pop_heap(&h), 2.4f);
+    CU_ASSERT_TRUE_FATAL(h.index == 3);
+    CU_ASSERT_EQUAL_FATAL(replace(&h, 1.4f), 3.4f);
+    CU_ASSERT_EQUAL_FATAL(peek_heap(&h), 1.4f);
+    merge(&m, &h);
 }
