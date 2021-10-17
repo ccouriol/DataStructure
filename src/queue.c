@@ -32,7 +32,7 @@ void init_queue(Queue *q)
 * \author Clément Couriol
 * \version 0.1
 * \date  13/10/2021
-* \brief add a value to a queue
+* \brief add a value to queue
 * \remarks Doesn't check if the QUEUE_MAX_SIZE value is exceeded
 * \param q 
 * \param value 
@@ -48,11 +48,12 @@ void enqueue(Queue *q, float value)
 * \author Clément Couriol
 * \version 0.1
 * \date  13/10/2021
-* \brief remove the first value of a queue & returns it
+* \brief remove the first value of queue & returns it
 * \remarks Doesn't check if the queue is empty
 * \param q 
 * \return 
 */
+//TODO: Reseting values not mandatory, you can just replace the index that will override the values
 float dequeue(Queue *q)
 {
   float firstValue = q->data[0];
@@ -101,6 +102,7 @@ float front_queue(Queue *q)
 * \remarks None
 * \param q 
 */
+//TODO: Reseting values not mandatory, you can just replace the index that will override the values
 void clear_queue(Queue *q)
 {
   for (int i = 0; i < q->index; i++)
