@@ -322,6 +322,14 @@ void cunit_test_arraylist()
     CU_ASSERT_TRUE_FATAL(l0.index == 0);
 }
 
+/*!
+* \fn void assert_test_heap()
+* \author Name <email@email.com>
+* \version 0.1
+* \date  17/10/2021
+* \brief 
+* \remarks None
+*/
 void assert_test_heap()
 {
     Heap h;

@@ -13,7 +13,7 @@
 /*! Importation of librairies*/
 #include "../include/stack.h"
 /*!
-* \fn void push(Stack *s, float value)
+* \fn void push_stack(Stack *s, float value)
 * \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
@@ -49,7 +49,7 @@ void init_stack(Stack *s)
 }
 
 /*!
-* \fn float pop(Stack *s)
+* \fn float pop_stack(Stack *s)
 * \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
@@ -97,7 +97,7 @@ bool is_stack_empty(Stack *s)
 }
 
 /*!
-* \fn float peek_stack(Stack *s) 
+* \fn float peek_stack(Stack *s)
 * \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
@@ -116,7 +116,7 @@ float peek_stack(Stack *s)
 }
 
 /*!
-* \fn void dup(Stack *s) 
+* \fn void dup(Stack *s)
 * \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
@@ -134,7 +134,7 @@ void dup(Stack *s)
 }
 
 /*!
-* \fn void swap(Stack *s) 
+* \fn void swap(Stack *s)
 * \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
@@ -152,7 +152,7 @@ void swap(Stack *s)
 }
 
 /*!
-* \fn void clear_stack(Stack *s) 
+* \fn void clear_stack(Stack *s)
 * \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021

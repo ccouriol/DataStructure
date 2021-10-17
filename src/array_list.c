@@ -87,7 +87,7 @@ float remove_at(Array_list *l, int position)
 }
 
 /*!
-* \fn float get_at(Array_list *l,int position)
+* \fn float get_at(Array_list *l, int position)
 * \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  14/10/2021
