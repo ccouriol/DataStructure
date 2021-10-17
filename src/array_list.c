@@ -11,11 +11,11 @@
 */
 
 /*! Importation of librairies*/
-#include "array_list.h"
+#include "../include/array_list.h"
 
 /*!
 * \fn void init_array_list(Array_list *l)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  14/10/2021
 * \brief Initialize the list with values equals to 0
@@ -34,7 +34,7 @@ void init_array_list(Array_list *l)
 
 /*!
 * \fn void insert_at(Array_list *l, int position, float value)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  14/10/2021
 * \brief Put a value in a choosen position 
@@ -52,7 +52,7 @@ void insert_at(Array_list *l, int position, float value)
 
 /*!
 * \fn void add(Array_list *l, float value)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  14/10/2021
 * \brief Put a value from the begining of the list, act like a stack
@@ -69,7 +69,7 @@ void add(Array_list *l, float value)
 
 /*!
 * \fn float remove_at(Array_list *l, int position)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  14/10/2021
 * \brief Delete the value from a choosen position
@@ -88,7 +88,7 @@ float remove_at(Array_list *l, int position)
 
 /*!
 * \fn float get_at(Array_list *l,int position)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  14/10/2021
 * \brief return the value of a choosen position
@@ -105,7 +105,7 @@ float get_at(Array_list *l, int position)
 
 /*!
 * \fn void clear_list(Array_list *l)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  14/10/2021
 * \brief Clear the whole list by setting the values to 0

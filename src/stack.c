@@ -11,10 +11,10 @@
 */
 
 /*! Importation of librairies*/
-#include "stack.h"
+#include "../include/stack.h"
 /*!
 * \fn void push(Stack *s, float value)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief  Put a value on the top of the stack
@@ -31,7 +31,7 @@ void push_stack(Stack *s, float value)
 
 /*!
 * \fn void init_stack(Stack *s)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief Initialize the stack with values set to 0
@@ -50,7 +50,7 @@ void init_stack(Stack *s)
 
 /*!
 * \fn float pop(Stack *s)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief Take out the the value on the top of the stack
@@ -76,7 +76,7 @@ float pop_stack(Stack *s)
 
 /*!
 * \fn bool is_stack_empty(Stack *s)
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief Verify if the stack is empty
@@ -98,7 +98,7 @@ bool is_stack_empty(Stack *s)
 
 /*!
 * \fn float peek_stack(Stack *s) 
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief Copy the value on the top of the stack
@@ -117,7 +117,7 @@ float peek_stack(Stack *s)
 
 /*!
 * \fn void dup(Stack *s) 
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief Duplicate the value on the top of the stack and add it above the original
@@ -135,7 +135,7 @@ void dup(Stack *s)
 
 /*!
 * \fn void swap(Stack *s) 
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief Swap the first and the seconde value on the top of the stack
@@ -153,7 +153,7 @@ void swap(Stack *s)
 
 /*!
 * \fn void clear_stack(Stack *s) 
-* \author Name <email@email.com>
+* \author GABETTE Cédric <sirdricks@outlook.com>
 * \version 0.1
 * \date  13/10/2021
 * \brief Clear the whole stack by setting the values to 0
