@@ -18,7 +18,6 @@ void init_heap(Heap *h);
 bool is_heap_empty(Heap *h);
 float pop_heap(Heap *h); //pop the root value
 void push_heap(Heap *h, float value);
-void pupupu(Heap *h, float value);
 float replace(Heap *h, float value); // pop root and push a new key.
 float peek_heap(Heap *h);            // return root value but dont remove it
 
